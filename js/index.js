@@ -95,7 +95,21 @@ if (heroSlides.length > 1) {
         'zoom'
     ];
 
-    const pickTransition = () => transitionStyles[Math.floor(Math.random() * transitionStyles.length)];
+    const mobileTransitionStyles = [
+        'push',
+        'zoom',
+        'mobile-push-left',
+        'mobile-push-right',
+        'mobile-zoom-in',
+        'mobile-zoom-out',
+        'mobile-random'
+    ];
+
+    const pickTransition = () => {
+        const isMobile = window.matchMedia('(max-width: 1024px)').matches;
+        const pool = isMobile ? mobileTransitionStyles : transitionStyles;
+        return pool[Math.floor(Math.random() * pool.length)];
+    };
 
     const clearTransitionClasses = (slide) => {
         slide.classList.remove(
@@ -110,7 +124,15 @@ if (heroSlides.length > 1) {
             'transition-dissolve-in',
             'transition-dissolve-out',
             'transition-zoom-in',
-            'transition-zoom-out'
+            'transition-zoom-out',
+            'transition-mobile-push-left-in',
+            'transition-mobile-push-left-out',
+            'transition-mobile-push-right-in',
+            'transition-mobile-push-right-out',
+            'transition-mobile-zoom-in',
+            'transition-mobile-zoom-out',
+            'transition-mobile-random-in',
+            'transition-mobile-random-out'
         );
     };
 
@@ -136,7 +158,7 @@ if (heroSlides.length > 1) {
         }, 900);
     };
 
-    setInterval(changeSlide, 5000);
+    setInterval(changeSlide, 7000);
 }
 
 const ctaButton = document.querySelector('.cta-button');
