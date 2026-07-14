@@ -171,6 +171,77 @@ body {
     }
 }
 
+@media (max-width: 1024px) {
+    .hero-slide {
+        background-size: cover;
+        background-position: 50% 50%;
+        transform: none;
+    }
+
+    .hero-slide.hero-slide--active {
+        animation: heroMobileDrift 8.5s ease-in-out both;
+    }
+
+    .hero-slide.transition-mobile-push-left-in { animation: heroMobilePushLeftIn 1.4s ease both; }
+    .hero-slide.transition-mobile-push-left-out { animation: heroMobilePushLeftOut 1.4s ease both; }
+    .hero-slide.transition-mobile-push-right-in { animation: heroMobilePushRightIn 1.4s ease both; }
+    .hero-slide.transition-mobile-push-right-out { animation: heroMobilePushRightOut 1.4s ease both; }
+    .hero-slide.transition-mobile-zoom-in { animation: heroMobileZoomIn 1.4s ease both; }
+    .hero-slide.transition-mobile-zoom-out { animation: heroMobileZoomOut 1.4s ease both; }
+    .hero-slide.transition-mobile-random-in { animation: heroMobileRandomIn 1.4s ease both; }
+    .hero-slide.transition-mobile-random-out { animation: heroMobileRandomOut 1.4s ease both; }
+
+    @keyframes heroMobileDrift {
+        0% { background-position: 40% 45%; transform: scale(1.08); }
+        50% { background-position: 60% 55%; transform: scale(1.12); }
+        100% { background-position: 50% 50%; transform: scale(1.1); }
+    }
+
+    @keyframes heroMobilePushLeftIn {
+        from { opacity: 0; background-position: 80% 50%; transform: scale(1.12); }
+        to { opacity: 1; background-position: 50% 50%; transform: scale(1); }
+    }
+
+    @keyframes heroMobilePushLeftOut {
+        from { opacity: 1; background-position: 50% 50%; transform: scale(1); }
+        to { opacity: 0; background-position: 20% 50%; transform: scale(1.08); }
+    }
+
+    @keyframes heroMobilePushRightIn {
+        from { opacity: 0; background-position: 20% 50%; transform: scale(1.12); }
+        to { opacity: 1; background-position: 50% 50%; transform: scale(1); }
+    }
+
+    @keyframes heroMobilePushRightOut {
+        from { opacity: 1; background-position: 50% 50%; transform: scale(1); }
+        to { opacity: 0; background-position: 80% 50%; transform: scale(1.08); }
+    }
+
+    @keyframes heroMobileZoomIn {
+        from { opacity: 0; background-position: 55% 45%; transform: scale(1.22); }
+        to { opacity: 1; background-position: 50% 50%; transform: scale(1); }
+    }
+
+    @keyframes heroMobileZoomOut {
+        from { opacity: 1; background-position: 50% 50%; transform: scale(1); }
+        to { opacity: 0; background-position: 45% 55%; transform: scale(0.95); }
+    }
+
+    @keyframes heroMobileRandomIn {
+        from { opacity: 0; background-position: 70% 30%; transform: scale(1.16); }
+        to { opacity: 1; background-position: 50% 50%; transform: scale(1); }
+    }
+
+    @keyframes heroMobileRandomOut {
+        from { opacity: 1; background-position: 50% 50%; transform: scale(1); }
+        to { opacity: 0; background-position: 30% 70%; transform: scale(0.94); }
+    }
+
+    .hero-overlay {
+        background: linear-gradient(135deg, rgba(41, 131, 207, 0.18), rgba(41, 131, 207, 0.14));
+    }
+}
+
 .hero-slide:nth-child(1) {
     background-image: url('../carossel/girlplan.png');
 }
@@ -611,6 +682,8 @@ body {
 
 .our-services .service-panel.is-open p {
     color: #d52c1c;
+    background: rgba(245, 244, 244, 0.6);
+    border-radius: 12px;
 }
 
 .our-services .services-visual {
